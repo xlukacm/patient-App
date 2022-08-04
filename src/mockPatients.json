@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Eclair@name.com",
+    "age": 16,
+    "disease": "cancer",
+    "born": "20.06.2006",
+    "address": "ulicna 1, BA",
+    "phone": "0912345678"
+  },
+  {
+    "id": 2,
+    "name": "FrozenYoghurt@name.com",
+    "age": 60,
+    "disease": "fever",
+    "born": "25.06.1962",
+    "address": "ulicna 54, BA",
+    "phone": "0912345678"
+  },
+  {
+    "id": 3,
+    "name": "Gingerbread@name.com",
+    "age": 19,
+    "disease": "headache",
+    "born": "10.06.2003",
+    "address": "ulicna 78, BA",
+    "phone": "0912345678"
+  },
+  {
+    "id": 4,
+    "name": "IceSandwich@name.com",
+    "age": 32,
+    "disease": "cancer",
+    "born": "25.06.1990",
+    "address": "ulicna 8, BA",
+    "phone": "0912345678"
+  },
+  {
+    "id": 5,
+    "name": "JellyBean@name.com",
+    "age": 90,
+    "disease": "headache",
+    "born": "24.09.1932",
+    "address": "ulicna 6, BA",
+    "phone": "0912345678"
+  },
+  {
+    "id": 6,
+    "name": "KitKat@name.com",
+    "age": 50,
+    "disease": "headache",
+    "born": "23.10.1972",
+    "address": "ulicna 20, BA",
+    "phone": "0912345678"
+  },
+  {
+    "id": 7,
+    "name": "Lollipop@name.com",
+    "age": 5,
+    "disease": "headache",
+    "born": "22.12.2017",
+    "address": "ulicna 5, BA",
+    "phone": "0912345678"
+  },
+  {
+    "id": 8,
+    "name": "Marshmallow@name.com",
+    "age": 34,
+    "disease": "fever",
+    "born": "21.01.1988",
+    "address": "ulicna 4, BA",
+    "phone": "0912345678"
+  }
+]
