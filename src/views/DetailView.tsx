@@ -1,17 +1,16 @@
 import React, { FC, useEffect, useState } from "react";
-import {useNavigate, useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import mockData from "../mockPatients.json";
 import {
-  Avatar, Box, Button,
+  Box,
+  Button,
   Divider,
   List,
   ListItem,
-  ListItemAvatar,
   ListItemText,
   Typography,
 } from "@mui/material";
 import IPatientsDetails from "../models/patientDetails";
-import useLocalStorage from "../hooks/useLocalStorage";
 import Layout from "../components/Layout";
 
 export type PatientPageParams = {
@@ -20,14 +19,9 @@ export type PatientPageParams = {
 
 const DetailView: FC = () => {
   const params = useParams<PatientPageParams>();
-  const [patients, setPatients] = useState(mockData);
+  const [patients, ] = useState(mockData);
   const [currentPatient, setCurrentPatient] =
     React.useState<IPatientsDetails>();
-  const [loginName,] = useLocalStorage("account", "");
-  const navigate = useNavigate()
-  if(loginName == ""){
-    navigate("/login")
-  }
 
   useEffect(() => {
     const index = patients.findIndex(
@@ -41,17 +35,25 @@ const DetailView: FC = () => {
 
   //If there would be more time, I would make a map and listItem component by all props, not the whole list like this
   return (
-    <div>
-      <Layout/>
-      <Box sx={{margin:2}}>
-        <Typography>Detail of {currentPatient?.name}</Typography>
-        <Button sx={{float:"right"}} href="/">Back to table</Button>
+    <>
+      <Layout />
+      <Box sx={{ margin: 2 }}>
+        <Typography sx={{ display: "contents" }}>
+          Detail of {currentPatient?.name}
+        </Typography>
+        <Button sx={{ float: "right" }} href="/">
+          Back to table
+        </Button>
       </Box>
-      <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
-        <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-        </ListItemAvatar>
-        <ListItem alignItems="flex-start">
+      <List
+        sx={{
+          marginLeft: 3,
+          marginBottom: 2,
+          maxWidth: 360,
+          bgcolor: "background.paper",
+        }}
+      >
+        <ListItem alignItems="center">
           <ListItemText
             primary="Name of patient"
             secondary={
@@ -159,7 +161,7 @@ const DetailView: FC = () => {
           />
         </ListItem>
       </List>
-    </div>
+    </>
   );
 };
 export default DetailView;

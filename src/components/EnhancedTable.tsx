@@ -225,35 +225,48 @@ export default function EnhancedTable() {
   const history = useNavigate();
   const [isPopUpSeen, setIsPopUpSeen] = useState(false);
   const [agreeWithDelete, setAgreeWithDelete] = useState(false);
+  const [whichPatientDelete, setWhichPatientDelete] = useState<IPatients>();
 
-  // useEffect(()=>{
-  //   setPatientArray(props.patient)
-  // },[props])
+  useEffect(() => {
+    if (whichPatientDelete) {
+      deletePatientCurrent(whichPatientDelete);
+    }
+  }, [agreeWithDelete]);
+
+  const handleClosePopUp = () => setIsPopUpSeen(false);
+  const handleShowPopUp = () => setIsPopUpSeen(true);
+  const handleClosePopUpWithAgree = () => {
+    setIsPopUpSeen(false);
+    setAgreeWithDelete(true);
+  };
 
   const addPatient = (row: IPatientsDetails) => {
     setPatients((currentArray) => [...currentArray, row]);
-    console.log(patients);
   };
 
   const editPatient = (id: number) => {
     history(`/detail/${id}`);
   };
-
   const deletePatient = (currentPatient: IPatients) => {
-    const currentIndex = patients.findIndex((_) => _.id === currentPatient.id);
-    setPatients((_) => {
-      const newArray = [..._];
-      newArray.splice(currentIndex, 1);
+    setIsPopUpSeen(true);
+    setWhichPatientDelete(currentPatient);
+  };
 
-      return newArray;
-    });
-    // console.log(patients)
-    // setIsPopUpSeen(true)
-    // if(agreeWithDelete) {
-    //   setIsPopUpSeen(false)
-    //   setAgreeWithDelete(false)
-    //   setPatients(patients.filter((item) => item.id !== currentPatient.id))
-    // }
+  //this is because useState is Asynch and agreeWithDelete is not change immediately
+  const deletePatientCurrent = (currentPatient: IPatients) => {
+    if (agreeWithDelete) {
+      setIsPopUpSeen(false);
+      setAgreeWithDelete(false);
+      const currentIndex = patients.findIndex(
+        (_) => _.id === currentPatient.id
+      );
+      setPatients((_) => {
+        const newArray = [..._];
+        newArray.splice(currentIndex, 1);
+
+        return newArray;
+      });
+    }
   };
 
   const handleRequestSort = (
@@ -280,13 +293,6 @@ export default function EnhancedTable() {
     setDense(event.target.checked);
   };
 
-  const handleClosePopUp = () => setIsPopUpSeen(false);
-  const handleShowPopUp = () => setIsPopUpSeen(true);
-  const handleClosePopUpWithAgree = () => {
-    setIsPopUpSeen(false);
-    setAgreeWithDelete(true);
-  };
-
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - patients.length) : 0;
 
@@ -311,8 +317,6 @@ export default function EnhancedTable() {
               {stableSort(patients, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  // const isItemSelected = isSelected(row.name);
-                  // const isItemSelected = isSelected(row.name);
                   return (
                     <PatientItem
                       key={row.id}
@@ -347,6 +351,7 @@ export default function EnhancedTable() {
       </Paper>
       <Box sx={{ margin: 1 }}>
         <FormControlLabel
+          sx={{ color: "whitesmoke" }}
           control={<Switch checked={dense} onChange={handleChangeDense} />}
           label="Dense padding"
         />

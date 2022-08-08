@@ -14,6 +14,7 @@ export interface Props {
   patient: IPatientsDetails[];
   addPatient: (index: IPatientsDetails) => void;
 }
+
 const AddPatient: FC<Props> = (props) => {
   const [open, setOpen] = React.useState(false);
   const [patientArray, setPatientArray] = useState(props.patient);
@@ -39,68 +40,66 @@ const AddPatient: FC<Props> = (props) => {
   const onSubmit = (data: IPatientsDetails) => {
     data.id = Math.max(...patientArray.map((o) => o.id)) + 1;
     props.addPatient(data);
-    console.log("bol som tu");
-    console.log({ data });
   };
 
   return (
     <Box sx={{ float: "right", marginRight: 1 }}>
-      <Button variant="outlined" color="success" onClick={handleClickOpen}>
+      <Button variant="contained" color="success" onClick={handleClickOpen}>
         Add new patient
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add new patient</DialogTitle>
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogContent>
-            <DialogContentText sx={{marginBottom:2}}>
+            <DialogContentText sx={{ marginBottom: 2 }}>
               Fill in all data about the new patient
             </DialogContentText>
-            <Box sx={{textAlign:"center"}}>
+            <Box sx={{ textAlign: "center" }}>
               <TextField
-                  {...register("name")}
-                  placeholder="Name"
-                  type="text"
-                  sx={{padding:"5px"}}
-                  required
+                {...register("name")}
+                placeholder="Name"
+                type="text"
+                sx={{ padding: "5px" }}
+                required
               />
               <TextField
-                  {...register("age", { valueAsNumber: true })}
-                  placeholder="Age"
-                  type="number"
-                  sx={{padding:"5px"}}
-                  required
+                {...register("age", { valueAsNumber: true })}
+                placeholder="Age"
+                type="number"
+                sx={{ padding: "5px" }}
+                required
               />
               <TextField
-                  {...register("disease")}
-                  placeholder="Disease"
-                  type="text"
-                  sx={{padding:"5px"}}
-                  required
+                {...register("disease")}
+                placeholder="Disease"
+                type="text"
+                sx={{ padding: "5px" }}
+                required
               />
               <TextField
-                  {...register("born")}
-                  placeholder="Born"
-                  type="text"
-                  sx={{padding:"5px"}}
-                  required
+                {...register("born")}
+                placeholder="Born"
+                type="text"
+                sx={{ padding: "5px" }}
+                required
               />
               <TextField
-                  {...register("address")}
-                  placeholder="Address"
-                  type="text"
-                  sx={{padding:"5px"}}
-                  required
+                {...register("address")}
+                placeholder="Address"
+                type="text"
+                sx={{ padding: "5px" }}
+                required
               />
               <TextField
-                  {...register("phone")}
-                  placeholder="Phone"
-                  type="text"
-                  sx={{padding:"5px"}}
-                  required
+                {...register("phone")}
+                placeholder="Phone"
+                type="text"
+                sx={{ padding: "5px" }}
+                required
               />
             </Box>
           </DialogContent>
-          <DialogActions sx={{margin:2}}>
+          <DialogActions sx={{ margin: 2 }}>
             <Button onClick={handleClose}>Cancel</Button>
             <Button
               type="submit"
