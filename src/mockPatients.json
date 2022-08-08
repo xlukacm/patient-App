@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Eclair@name.com",
+    "name": "Eclair",
     "age": 16,
     "disease": "cancer",
     "born": "20.06.2006",
@@ -10,7 +10,7 @@
   },
   {
     "id": 2,
-    "name": "FrozenYoghurt@name.com",
+    "name": "FrozenYoghurt",
     "age": 60,
     "disease": "fever",
     "born": "25.06.1962",
@@ -19,7 +19,7 @@
   },
   {
     "id": 3,
-    "name": "Gingerbread@name.com",
+    "name": "Gingerbread",
     "age": 19,
     "disease": "headache",
     "born": "10.06.2003",
@@ -28,7 +28,7 @@
   },
   {
     "id": 4,
-    "name": "IceSandwich@name.com",
+    "name": "IceSandwich",
     "age": 32,
     "disease": "cancer",
     "born": "25.06.1990",
@@ -37,7 +37,7 @@
   },
   {
     "id": 5,
-    "name": "JellyBean@name.com",
+    "name": "JellyBean",
     "age": 90,
     "disease": "headache",
     "born": "24.09.1932",
@@ -46,7 +46,7 @@
   },
   {
     "id": 6,
-    "name": "KitKat@name.com",
+    "name": "KitKat",
     "age": 50,
     "disease": "headache",
     "born": "23.10.1972",
@@ -55,7 +55,7 @@
   },
   {
     "id": 7,
-    "name": "Lollipop@name.com",
+    "name": "Lollipop",
     "age": 5,
     "disease": "headache",
     "born": "22.12.2017",
@@ -64,7 +64,7 @@
   },
   {
     "id": 8,
-    "name": "Marshmallow@name.com",
+    "name": "Marshmallow",
     "age": 34,
     "disease": "fever",
     "born": "21.01.1988",

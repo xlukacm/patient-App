@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { urls } from "./helpers/urls";
 import LoginView from "./views/LoginView";
-import HomeView from "./views/homeView/HomeView";
+import HomeView from "./views/HomeView";
 import DetailView from "./views/DetailView";
 import NotFoundView from "./views/NotFoundView";
 
